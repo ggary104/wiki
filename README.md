@@ -1,6 +1,6 @@
 # **CS50w Project 1 Wiki**
 
-### _A Wikipedia-like online encyclopedia_
+_A Wikipedia-like online encyclopedia_
 
 ## **Specifications:**
 
