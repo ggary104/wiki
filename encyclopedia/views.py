@@ -30,14 +30,15 @@ def entry(request, entry):
             "content": util.get_entry(entry)
         })
 
+
 # SEARCH PAGE
-
-
 def search(request, search):
     form = SearchForm(request.POST)
-    print(search)
+    entries = util.list_entries()
+    for i in range(len(entries)):
+        entries[i] = entries[i].lower()
     return render(request, "encyclopedia/search.html", {
         "form": form,
-        "search": search,
-        "entries": util.list_entries()
+        "search": search.lower(),
+        "entries": entries
     })
