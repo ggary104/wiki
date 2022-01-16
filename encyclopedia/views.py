@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import SearchForm
+from .forms import SearchForm, NewForm
 
 from . import util
 
@@ -23,7 +23,7 @@ def index(request):
 # ENTRY PAGE
 def entry(request, entry):
     form = SearchForm(request.POST)
-    if request.method == "GET":
+    if request.method == "GET" and request != "new":
         return render(request, "encyclopedia/entry.html", {
             "form": form,
             "title": entry,
@@ -41,4 +41,14 @@ def search(request, search):
         "form": form,
         "search": search.lower(),
         "entries": entries
+    })
+
+
+# NEW PAGE
+def new(request):
+    form = SearchForm(request.POST)
+    newForm = NewForm()
+    return render(request, "encyclopedia/new.html", {
+        "form": form,
+        "newForm": newForm,
     })
