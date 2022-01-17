@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render, redirect
 from .forms import SearchForm, NewForm
 from . import util
@@ -64,3 +65,9 @@ def new(request):
         "form": form,
         "newForm": newForm,
     })
+
+
+# RANDOM PAGE
+def randomPage(request):
+    if request.method == "GET" and request != "new":
+        return redirect(entry, random.choice(util.list_entries()))
