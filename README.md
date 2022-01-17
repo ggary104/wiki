@@ -20,7 +20,7 @@ _A Wikipedia-like online encyclopedia_
   - [x] Otherwise, the encyclopedia entry should be saved to disk, and the user should be taken to the new entry’s page.
 - [x] **Edit Page:** On each entry page, the user should be able to click a link to be taken to a page where the user can edit that entry’s Markdown content in a textarea.
   - [x] The textarea should be pre-populated with the existing Markdown content of the page. (i.e., the existing content should be the initial value of the textarea).
-  - [ ] The user should be able to click a button to save the changes made to the entry.
-  - [ ] Once the entry is saved, the user should be redirected back to that entry’s page.
+  - [x] The user should be able to click a button to save the changes made to the entry.
+  - [x] Once the entry is saved, the user should be redirected back to that entry’s page.
 - [x] **Random Page:** Clicking “Random Page” in the sidebar should take user to a random encyclopedia entry.
 - [x] **Markdown to HTML Conversion:** On each entry’s page, any Markdown content in the entry file should be converted to HTML before being displayed to the user. You may use the python-markdown2 package to perform this conversion, installable via pip3 install markdown2.
