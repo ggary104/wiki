@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from .forms import SearchForm, NewForm
-
 from . import util
 
 
@@ -47,8 +46,21 @@ def search(request, search):
 # NEW PAGE
 def new(request):
     form = SearchForm(request.POST)
-    newForm = NewForm()
+    newForm = NewForm(request.POST)
+    pageExist = False
+    if request.method == 'POST' and newForm.is_valid() and util.get_entry(newForm.cleaned_data["title"]) == None:
+        open('entries/%s.md' % newForm.cleaned_data["title"], 'x')
+        f = open('entries/%s.md' % newForm.cleaned_data["title"], 'a')
+        f.write('# %s\n\n' %
+                newForm.cleaned_data["title"] + newForm.cleaned_data["content"])
+        # f.write('\n')
+        # f.write(newForm.cleaned_data["content"])
+        f.close()
+        return redirect(entry, newForm.cleaned_data["title"])
+    elif request.method == 'POST' and newForm.is_valid() and util.get_entry(newForm.cleaned_data["title"]) != None:
+        pageExist = True
     return render(request, "encyclopedia/new.html", {
+        "pageExist": pageExist,
         "form": form,
         "newForm": newForm,
     })
