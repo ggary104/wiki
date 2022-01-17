@@ -23,5 +23,4 @@ _A Wikipedia-like online encyclopedia_
   - [ ] The user should be able to click a button to save the changes made to the entry.
   - [ ] Once the entry is saved, the user should be redirected back to that entry’s page.
 - [x] **Random Page:** Clicking “Random Page” in the sidebar should take user to a random encyclopedia entry.
-- [ ] **Markdown to HTML Conversion:** On each entry’s page, any Markdown content in the entry file should be converted to HTML before being displayed to the user. You may use the python-markdown2 package to perform this conversion, installable via pip3 install markdown2.
-  - [ ] _Challenge for those more comfortable:_ If you’re feeling more comfortable, try implementing the Markdown to HTML conversion without using any external libraries, supporting headings, boldface text, unordered lists, links, and paragraphs. You may find using regular expressions in Python helpful.
+- [x] **Markdown to HTML Conversion:** On each entry’s page, any Markdown content in the entry file should be converted to HTML before being displayed to the user. You may use the python-markdown2 package to perform this conversion, installable via pip3 install markdown2.

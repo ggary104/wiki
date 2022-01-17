@@ -5,10 +5,9 @@
 {% endblock %}
 
 {% block body %}
-    <h1>{{ title }}</h1>
     {% if content == none %}
         <p>ERROR 404: Page Not Found</p>
     {% else %}
-        <p>{{ content }}</p>
+        {{ content|safe }}
     {% endif %}
 {% endblock %}

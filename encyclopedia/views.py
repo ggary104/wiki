@@ -1,7 +1,10 @@
 import random
+from markdown2 import Markdown
 from django.shortcuts import render, redirect
 from .forms import SearchForm, NewForm
 from . import util
+
+markdowner = Markdown()
 
 
 # INDEX PAGE
@@ -27,7 +30,7 @@ def entry(request, entry):
         return render(request, "encyclopedia/entry.html", {
             "form": form,
             "title": entry,
-            "content": util.get_entry(entry)
+            "content": markdowner.convert(util.get_entry(entry))
         })
 
 
